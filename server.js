@@ -21,35 +21,25 @@ app.use(
   express.urlencoded({ extended: true })
 ) /* bodyParser.urlencoded() is deprecated */
 
-const db = require("./app/models")
+const db = require("./models")
 
-const User = db.users
+// const User = db.users
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync")
-  initial()
-})
+db.sequelize.sync()
 
-const initial = () => {
-  User.create({
-    prefix_id: 1,
-    fname: "Anuchit",
-    lname: "Khangdongkheng",
-    username: "daykrm",
-    password: "wowza",
-  })
-}
-// // drop the table if it already exists
 // db.sequelize.sync({ force: true }).then(() => {
-//   console.log("Drop and re-sync db.");
-// });
+//   console.log("Drop and re-sync")
+// })
 
 // simple route
 app.get("/", (req, res) => {
+  console.log("DB MODEL", db)
   res.json({ message: "Welcome to oyasumi-dev application." })
 })
 
 require("./app/routes/user.routes")(app)
+
+// require("./app/routes/user.routes")(app)
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080
