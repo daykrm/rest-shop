@@ -23,7 +23,22 @@ app.use(
 
 const db = require("./app/models")
 
-db.sequelize.sync()
+const User = db.users
+
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and re-sync")
+  initial()
+})
+
+const initial = () => {
+  User.create({
+    prefix_id: 1,
+    fname: "Anuchit",
+    lname: "Khangdongkheng",
+    username: "daykrm",
+    password: "wowza",
+  })
+}
 // // drop the table if it already exists
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");
