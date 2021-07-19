@@ -8,6 +8,7 @@ module.exports = {
 
     return queryInterface.bulkInsert("users", [
       {
+        id: 1,
         prefix_id: 1,
         fname: "อนุชิต",
         lname: "คังดงเค็ง",
@@ -17,6 +18,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        id: 2,
         prefix_id: 1,
         fname: "อัครวิทย์",
         lname: "ศรีวิเศษ",
