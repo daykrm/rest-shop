@@ -21,11 +21,11 @@ app.use(
   express.urlencoded({ extended: true })
 ) /* bodyParser.urlencoded() is deprecated */
 
-// const db = require("./models")
+const db = require("./models")
 
 // const User = db.users
 
-// db.sequelize.sync()
+db.sequelize.sync()
 
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync")
