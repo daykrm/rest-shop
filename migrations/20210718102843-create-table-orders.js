@@ -7,8 +7,8 @@ module.exports = {
       {
         id: {
           type: Sequelize.INTEGER,
-          primary: true,
-          autoincrement: true,
+          primaryKey: true,
+          autoIncrement: true,
         },
         order_date: {
           type: Sequelize.DATE(6),
